@@ -1,0 +1,105 @@
+@mixin box-sizing($value) {
+  -webkit-box-sizing: $value;
+  -moz-box-sizing: $value;
+  -ms-box-sizing: $value;
+  -o-box-sizing: $value;
+  box-sizing: $value;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin rotate($angle) {
+  -ms-transform: rotate($angle);
+  -webkit-transform: rotate($angle);
+  -moz-transform: rotate($angle);
+  -o-transform: rotate($angle);
+  transform: rotate($angle);
+}
+
+@mixin user-select($selection) {
+  -webkit-user-select: $selection;
+  -ms-user-select: $selection;
+  -moz-user-select: $selection;
+  -o-user-select: $selection;
+  user-select: $selection;
+}
+
+@mixin scrollbar() {
+  &::-webkit-scrollbar         {@content};
+  &:-moz-scrollbar             {@content};
+  &::-moz-scrollbar            {@content};
+  &:-ms-scrollbar              {@content};
+}
+
+@mixin scrollbar_thumb {
+  &::-webkit-scrollbar-thumb   {@content};
+  &:-moz-scrollbar-thumb       {@content};
+  &::-moz-scrollbar-thumb      {@content};
+  &:-ms-scrollbar-thumb        {@content};
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content};
+  &:-moz-placeholder           {@content};
+  &::-moz-placeholder          {@content};
+  &:-ms-input-placeholder      {@content};
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number]::-ms-inner-spin-button,
+input[type=number]::-ms-outer-spin-button {
+  -ms-appearance: none;
+  margin: 0;
+}
+
+input[type=number]::-moz-inner-spin-button,
+input[type=number]::-moz-outer-spin-button {
+  -moz-appearance: none;
+  margin: 0;
+}
+
+input[type=number]::-o-inner-spin-button,
+input[type=number]::-o-outer-spin-button {
+  -o-appearance: none;
+  margin: 0;
+}
+
+@mixin corner() {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  @include border-radius(50%);
+}
+
+$lightest: rgba(255, 157, 143, 1);
+
+// $lightest_transparent: rgba(245, 180, 138, 0.9);
+
+// $lighter: rgba(115, 175, 255, .9);
+
+$light: rgba(255, 113, 89, 0.85);
+
+$medium: rgb(191, 85, 67);
+
+$dark: rgb(127, 57, 45);
+
+// $darker: rgb(57, 87, 127);
+
+$darkest: rgb(64, 28, 22);
+
+$title1: 'Permanent Marker', cursive;
+
+$title2: 'Rock Salt', cursive;
+
+$normal: 'Josefin Sans', sans-serif;

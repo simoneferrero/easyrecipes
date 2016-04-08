@@ -1,0 +1,262 @@
+@import 'rules';
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  @include box-sizing(border-box);
+}
+
+*:after, *:before {
+  @include box-sizing(border-box);
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section {
+  display: block;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+html, body {
+  font-size: 1em;
+  font-weight: 400;
+  min-height: 100%;
+  display: inline-block;
+  color: $darkest;
+  font-family: $normal;
+  top: 0;
+}
+
+.clear {
+  display: block;
+}
+
+.clear::after {
+  clear: both;content: ".";
+  display: block;
+  height: 1px;
+  visibility: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#background {
+  height: auto;
+  width: 100%;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  background: url("http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2010/5/26/2/cw_set-art-multi-cupcakes_s4x3.jpg") center top no-repeat;
+  background-size: cover;
+  position: absolute;
+}
+
+#stream {
+  width: 80vw;
+  margin: 0 10vw 0 10vw;
+}
+
+#banner {
+  width: 100%;
+  height: 25vh;
+  margin: 2vh 0 4vh 0;
+  text-align: center;
+  background-color: $light;
+  @include border-radius(3vh);
+}
+
+#title {
+  // margin-top: 1.5vh;
+}
+
+#title h1 {
+  font-size: 12vh;
+  font-family: $title1;
+}
+
+#payoff {
+  margin-top: -3vh;
+}
+
+#payoff h2 {
+  font-size: 4vh;
+  color: $dark;
+  font-family: $title2;
+}
+
+#description {
+  width: 100%;
+  margin: 2vh 0 2vh 0;
+  font-size: 2.5vh;
+  padding: 5vh 5vw 5vh 5vw;
+  text-align: center;
+  background-color: $light;
+  vertical-align: middle;
+  @include border-radius(3vh);
+}
+
+#ingredients {
+  display: inline-flex;
+  width: 100%;
+}
+
+#original {
+  margin-right: 2%;
+  @include border-radius(3vh);
+}
+
+#new {
+  margin-left: 2%;
+  @include border-radius(3vh);
+}
+
+.tab {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  width: 48%;
+  background-color: $light;
+}
+
+.section_header {
+  display: block;
+  text-align: center;
+  font-family: $title2;
+  margin-bottom: -2vh;
+}
+
+.section_header h3 {
+  font-size: 4.5vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+#original_ingredients {
+  display: block;
+}
+
+.servings {
+  margin: 0 auto;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  font-size: 3vh;
+  text-align: center;
+}
+
+.people {
+  width: 5vw;
+}
+
+input[type=number],
+input[type=text],
+#units {
+  padding: .5vh .5vw .5vh .5vw;
+  border: .3vh $medium solid;
+  color: $darkest;
+  background-color: $lightest;
+  height: 4vh;
+  font-size: 2vh;
+  text-align: center;
+  @include placeholder {
+    color: $medium;
+  };
+  @include border-radius(2vh);
+  font-family: $normal;
+}
+
+input[type=button] {
+  padding: .5vh .5vw .5vh .5vw;
+  border: .3vh $darkest solid;
+  color: $lightest;
+  background-color: $dark;
+  width: 4vh;
+  height: 4vh;
+  font-size: 2vh;
+  @include border-radius(3vh);
+  text-align: center;
+}
+
+.insert {
+  margin: 1vh 5% 1vh 5%;
+  margin-bottom: 3vh;
+  font-size: 2vh;
+  text-align: center;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-height: 4vh;
+}
+
+#insert form > * {
+  display: inline-block;
+}
+
+#quantity {
+  width: 7vw;
+}
+
+#ingredient {
+  width: 10vw;
+}
+
+#add {
+  border: .3vh $lightest solid;
+  @include border-radius(50%);
+}
+
+.ingredients_list {
+  margin: 0 auto;
+  margin-top: 3vh;
+  margin-bottom: 2vh;
+  font-size: 2vh;
+  text-align: center;
+  min-height: 3vh;
+  font-size: 2vh;
+}
+
+.single_ingredient {
+  margin: 0 auto;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  padding: .5vh .5vw .5vh .5vw;
+  border: .3vh $medium solid;
+  color: $darkest;
+  background-color: $lightest;
+  font-size: 2.5vh;
+  width: 90%;
+  height: 6.5vh;
+  vertical-align: middle;
+  line-height: 5vh;
+  @include border-radius(6.5vh/2);
+}
+
+.remove {
+  float: right;
+  line-height: normal;
+  margin-top: .5vh;
+}
+.new_ingredient {
+  line-height: 5vh;
+}
+
+.error {
+  margin: 0 auto;
+  margin: 0 auto;
+  margin-top: 3vh;
+  margin-bottom: 2vh;
+  font-size: 2vh;
+  width: 90%;
+  height: 6.5vh;
+  vertical-align: middle;
+  text-align: center;
+  border: .3vh $medium solid;
+  color: red;
+  background-color: $lightest;
+  line-height: 5.5vh;
+  @include border-radius(6.5vh/2);
+}
