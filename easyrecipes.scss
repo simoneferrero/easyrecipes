@@ -53,12 +53,13 @@ a {
   left: 0;
   background: url("http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2010/5/26/2/cw_set-art-multi-cupcakes_s4x3.jpg") center top no-repeat;
   background-size: cover;
-  position: absolute;
+  position: fixed;
 }
 
 #stream {
   width: 80vw;
   margin: 0 10vw 0 10vw;
+  position: absolute;
 }
 
 #banner {

@@ -28,74 +28,73 @@
             });
         });
     </script>
-    <div id="background">
-      <div id="stream">
-        <div id="banner">
-          <div id="title">
-            <h1>EasyRecipes</h1>
-          </div>
-          <div id="payoff">
-            <h2>Right dosage in a blink</h2>
-          </div>
+    <div id="background"></div>
+    <div id="stream">
+      <div id="banner">
+        <div id="title">
+          <h1>EasyRecipes</h1>
         </div>
-        <div id="description">
-          <p>Take your favourite recipe. Set the number of servings in the "Original" field, and then the one you need in the "New" field.<br />
-            Then, insert all the ingredients and - voila' - you have your recipe all worked out with the right numbers.<br />
-            Enjoy!
-          </p>
+        <div id="payoff">
+          <h2>Right dosage in a blink</h2>
         </div>
-        <div ng-controller="Ingredients" id="ingredients">
-          <div id="original" class="tab">
-            <div class="section_header">
-              <h3>Original recipe</h3>
-            </div>
-            <div id="original_ingredients">
-              <div class="servings">
-                <span>Serves:</span>
-                <input ng-model="originalNumber" id="original_people" class="people" type="number" min="1" placeholder="1">
-                <span>people</span>
-              </div>
-              <div class="insert">
-                <!-- <form> -->
-                  <div><input ng-model="quantity" id="quantity" type="number" min="0" placeholder="Quantity" my-enter="add()"></div>
-                  <div><select id="units" name="units">
-                    <option ng-repeat="choice in choices">{{ choice }}</option>
-                  </select></div>
-                  <div><input ng-model="ingredient" id="ingredient" type="text" placeholder="Ingredient" my-enter="add()"></div>
-                  <div><input ng-click="add()" id="add" type="button" value="+"></div>
-                <!-- </form> -->
-              </div>
-            </div>
-            <div id="original_ingredients_list" class="ingredients_list" ng-show="originalNumber >= 1">
-              <div ng-repeat="ingredient in recipe" class="single_ingredient">
-                <span>{{ (ingredient.quantity * 1) + ingredient.unit }}</span>
-                <span>{{ ingredient.ingredient }}</span>
-                <input class="remove" ng-click="ingredient.remove()" type="button" value="-">
-              </div>
-            </div>
-            <div class="error" ng-hide="originalNumber >= 1">Choose the number of servings to see the list of ingredients</div>
+      </div>
+      <div id="description">
+        <p>Take your favourite recipe. Set the number of servings in the "Original" field, and then the one you need in the "New" field.<br />
+          Then, insert all the ingredients and - voila' - you have your recipe all worked out with the right numbers.<br />
+          Enjoy!
+        </p>
+      </div>
+      <div ng-controller="Ingredients" id="ingredients">
+        <div id="original" class="tab">
+          <div class="section_header">
+            <h3>Original recipe</h3>
           </div>
-          <div id="new" class="tab">
-            <div class="section_header">
-              <h3>New recipe</h3>
+          <div id="original_ingredients">
+            <div class="servings">
+              <span>Serves:</span>
+              <input ng-model="originalNumber" id="original_people" class="people" type="number" min="1" placeholder="1">
+              <span>people</span>
             </div>
-            <div id="new_ingredients">
-              <div class="servings">
-                <span>Serves:</span>
-                <input ng-model="newNumber" id="new_people" class="people" type="number" min="1" placeholder="1">
-                <span>people</span>
-              </div>
-              <div class="insert">
-              </div>
+            <div class="insert">
+              <!-- <form> -->
+                <div><input ng-model="quantity" id="quantity" type="number" min="0" placeholder="Quantity" my-enter="add()"></div>
+                <div><select id="units" name="units">
+                  <option ng-repeat="choice in choices">{{ choice }}</option>
+                </select></div>
+                <div><input ng-model="ingredient" id="ingredient" type="text" placeholder="Ingredient" my-enter="add()"></div>
+                <div><input ng-click="add()" id="add" type="button" value="+"></div>
+              <!-- </form> -->
             </div>
-            <div id="new_ingredients_list" class="ingredients_list" ng-show="newNumber >= 1 &amp;&amp; originalNumber >= 1">
-              <div ng-repeat="ingredient in recipe" class="single_ingredient new_ingredient">
-                <span>{{ (ingredient.quantity / originalNumber * newNumber) + ingredient.unit }}</span>
-                <span>{{ ingredient.ingredient }}</span>
-              </div>
-            </div>
-            <div class="error" ng-hide="newNumber >= 1 &amp;&amp; originalNumber >= 1">Choose the number of servings to see the list of ingredients</div>
           </div>
+          <div id="original_ingredients_list" class="ingredients_list" ng-show="originalNumber >= 1">
+            <div ng-repeat="ingredient in recipe" class="single_ingredient">
+              <span>{{ (ingredient.quantity * 1) + ingredient.unit }}</span>
+              <span>{{ ingredient.ingredient }}</span>
+              <input class="remove" ng-click="ingredient.remove()" type="button" value="-">
+            </div>
+          </div>
+          <div class="error" ng-hide="originalNumber >= 1">Choose the number of servings to see the list of ingredients</div>
+        </div>
+        <div id="new" class="tab">
+          <div class="section_header">
+            <h3>New recipe</h3>
+          </div>
+          <div id="new_ingredients">
+            <div class="servings">
+              <span>Serves:</span>
+              <input ng-model="newNumber" id="new_people" class="people" type="number" min="1" placeholder="1">
+              <span>people</span>
+            </div>
+            <div class="insert">
+            </div>
+          </div>
+          <div id="new_ingredients_list" class="ingredients_list" ng-show="newNumber >= 1 &amp;&amp; originalNumber >= 1">
+            <div ng-repeat="ingredient in recipe" class="single_ingredient new_ingredient">
+              <span>{{ (ingredient.quantity / originalNumber * newNumber) + ingredient.unit }}</span>
+              <span>{{ ingredient.ingredient }}</span>
+            </div>
+          </div>
+          <div class="error" ng-hide="newNumber >= 1 &amp;&amp; originalNumber >= 1">Choose the number of servings to see the list of ingredients</div>
         </div>
       </div>
     </div>
