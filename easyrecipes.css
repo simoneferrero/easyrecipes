@@ -64,6 +64,9 @@ a {
   text-decoration: none;
   color: inherit; }
 
+.mobile {
+  display: none; }
+
 #background {
   height: auto;
   width: 100%;
@@ -74,6 +77,16 @@ a {
   background-size: cover;
   position: fixed; }
 
+.pad {
+  background-color: rgba(255, 113, 89, 0.85);
+  -webkit-border-radius: 3vh;
+  -moz-border-radius: 3vh;
+  -ms-border-radius: 3vh;
+  -o-border-radius: 3vh;
+  border-radius: 3vh;
+  box-shadow: 0 0.5vh 1vh rgba(64, 28, 22, 0.5);
+  text-align: center; }
+
 #stream {
   width: 80vw;
   margin: 0 10vw 0 10vw;
@@ -82,14 +95,7 @@ a {
 #banner {
   width: 100%;
   height: 25vh;
-  margin: 2vh 0 4vh 0;
-  text-align: center;
-  background-color: rgba(255, 113, 89, 0.85);
-  -webkit-border-radius: 3vh;
-  -moz-border-radius: 3vh;
-  -ms-border-radius: 3vh;
-  -o-border-radius: 3vh;
-  border-radius: 3vh; }
+  margin: 2vh 0 4vh 0; }
 
 #title h1 {
   font-size: 12vh;
@@ -108,14 +114,32 @@ a {
   margin: 2vh 0 2vh 0;
   font-size: 2.5vh;
   padding: 5vh 5vw 5vh 5vw;
-  text-align: center;
-  background-color: rgba(255, 113, 89, 0.85);
+  vertical-align: middle; }
+
+#choose_recipe {
+  font-family: "Rock Salt", cursive;
+  font-size: 4.5vh;
+  position: relative;
+  height: 13vh; }
+
+.selector {
+  position: absolute;
+  font-size: 4.5vh;
   vertical-align: middle;
-  -webkit-border-radius: 3vh;
-  -moz-border-radius: 3vh;
-  -ms-border-radius: 3vh;
-  -o-border-radius: 3vh;
-  border-radius: 3vh; }
+  width: 50.1%;
+  height: 100%;
+  display: none; }
+
+.selector h3 {
+  margin-top: 0; }
+
+#original_selector {
+  left: 0;
+  border-right: 0.5vw #401c16 solid; }
+
+#new_selector {
+  right: 0;
+  border-left: 0.51vw #401c16 solid; }
 
 #ingredients {
   display: inline-flex;
@@ -123,25 +147,16 @@ a {
 
 #original {
   margin-right: 2%;
-  -webkit-border-radius: 3vh;
-  -moz-border-radius: 3vh;
-  -ms-border-radius: 3vh;
-  -o-border-radius: 3vh;
-  border-radius: 3vh; }
+  display: block; }
 
 #new {
   margin-left: 2%;
-  -webkit-border-radius: 3vh;
-  -moz-border-radius: 3vh;
-  -ms-border-radius: 3vh;
-  -o-border-radius: 3vh;
-  border-radius: 3vh; }
+  display: block; }
 
 .tab {
   margin-top: 2vh;
   margin-bottom: 2vh;
-  width: 48%;
-  background-color: rgba(255, 113, 89, 0.85); }
+  width: 48%; }
 
 .section_header {
   display: block;
@@ -160,7 +175,7 @@ a {
 .servings {
   margin: 0 auto;
   margin-top: 1vh;
-  margin-bottom: 1vh;
+  margin-bottom: 3vh;
   font-size: 3vh;
   text-align: center; }
 
@@ -182,7 +197,8 @@ input[type=text],
   -ms-border-radius: 2vh;
   -o-border-radius: 2vh;
   border-radius: 2vh;
-  font-family: "Josefin Sans", sans-serif; }
+  font-family: "Josefin Sans", sans-serif;
+  box-shadow: 0 0.5vh 1vh rgba(64, 28, 22, 0.5); }
   input[type=number]::-webkit-input-placeholder,
   input[type=text]::-webkit-input-placeholder,
   #units::-webkit-input-placeholder {
@@ -208,12 +224,18 @@ input[type=button] {
   width: 4vh;
   height: 4vh;
   font-size: 2vh;
-  -webkit-border-radius: 3vh;
-  -moz-border-radius: 3vh;
-  -ms-border-radius: 3vh;
-  -o-border-radius: 3vh;
-  border-radius: 3vh;
-  text-align: center; }
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 0 0.5vh 1vh rgba(64, 28, 22, 0.5);
+  margin-top: 0; }
+
+input[type=button]:hover {
+  box-shadow: none;
+  margin-top: .5vh; }
 
 .insert {
   margin: 1vh 5% 1vh 5%;
@@ -224,7 +246,10 @@ input[type=button] {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  min-height: 4vh; }
+  min-height: 5vh; }
+
+#empty {
+  display: block; }
 
 #insert form > * {
   display: inline-block; }
@@ -249,8 +274,7 @@ input[type=button] {
   margin-bottom: 2vh;
   font-size: 2vh;
   text-align: center;
-  min-height: 3vh;
-  font-size: 2vh; }
+  min-height: 6.5vh; }
 
 .single_ingredient {
   margin: 0 auto;
@@ -269,12 +293,14 @@ input[type=button] {
   -moz-border-radius: 3.25vh;
   -ms-border-radius: 3.25vh;
   -o-border-radius: 3.25vh;
-  border-radius: 3.25vh; }
+  border-radius: 3.25vh;
+  box-shadow: 0 0.5vh 1vh rgba(64, 28, 22, 0.5);
+  position: relative; }
 
 .remove {
-  float: right;
-  line-height: normal;
-  margin-top: .5vh; }
+  right: .5vw;
+  top: .75vh;
+  position: absolute; }
 
 .new_ingredient {
   line-height: 5vh; }
@@ -297,6 +323,7 @@ input[type=button] {
   -moz-border-radius: 3.25vh;
   -ms-border-radius: 3.25vh;
   -o-border-radius: 3.25vh;
-  border-radius: 3.25vh; }
+  border-radius: 3.25vh;
+  box-shadow: 0 0.5vh 1vh rgba(64, 28, 22, 0.5); }
 
 /*# sourceMappingURL=easyrecipes.css.map */

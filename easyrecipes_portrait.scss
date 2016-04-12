@@ -1,0 +1,44 @@
+@import 'rules';
+
+html, body {
+  font-size: 2em;
+}
+
+#banner {
+  height: 20vh;
+}
+
+#title h1 {
+  font-size: 8vh;
+}
+
+#payoff h2 {
+  font-size: 3vh;
+}
+
+#description {
+  font-size: 2.5vh;
+}
+
+.selector {
+  font-size: 3.5vh;
+}
+
+.selector h3 {
+  margin-top: 1.5vh;
+}
+
+input[type=number],
+input[type=text],
+input[type=button],
+#units {
+  font-size: 2vh;
+}
+
+.single_ingredient {
+  font-size: 2.5vh;
+}
+
+.error {
+  font-size: 2vh;
+}

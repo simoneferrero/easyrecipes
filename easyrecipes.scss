@@ -45,6 +45,10 @@ a {
   color: inherit;
 }
 
+.mobile {
+  display: none;
+}
+
 #background {
   height: auto;
   width: 100%;
@@ -54,6 +58,13 @@ a {
   background: url("http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2010/5/26/2/cw_set-art-multi-cupcakes_s4x3.jpg") center top no-repeat;
   background-size: cover;
   position: fixed;
+}
+
+.pad {
+  background-color: $light;
+  @include border-radius(3vh);
+  box-shadow: 0 .5vh 1vh $darkest_shadow;
+  text-align: center;
 }
 
 #stream {
@@ -66,13 +77,6 @@ a {
   width: 100%;
   height: 25vh;
   margin: 2vh 0 4vh 0;
-  text-align: center;
-  background-color: $light;
-  @include border-radius(3vh);
-}
-
-#title {
-  // margin-top: 1.5vh;
 }
 
 #title h1 {
@@ -95,10 +99,37 @@ a {
   margin: 2vh 0 2vh 0;
   font-size: 2.5vh;
   padding: 5vh 5vw 5vh 5vw;
-  text-align: center;
-  background-color: $light;
   vertical-align: middle;
-  @include border-radius(3vh);
+}
+
+#choose_recipe {
+  font-family: $title2;
+  font-size: 4.5vh;
+  position: relative;
+  height: 13vh;
+}
+
+.selector {
+  position: absolute;
+  font-size: 4.5vh;
+  vertical-align: middle;
+  width: 50.1%;
+  height: 100%;
+  display: none;
+}
+
+.selector h3 {
+  margin-top: 0;
+}
+
+#original_selector {
+  left: 0;
+  border-right: 0.5vw $darkest solid;
+}
+
+#new_selector {
+  right: 0;
+  border-left: 0.51vw $darkest solid;
 }
 
 #ingredients {
@@ -108,19 +139,18 @@ a {
 
 #original {
   margin-right: 2%;
-  @include border-radius(3vh);
+  display: block;
 }
 
 #new {
   margin-left: 2%;
-  @include border-radius(3vh);
+  display: block;
 }
 
 .tab {
   margin-top: 2vh;
   margin-bottom: 2vh;
   width: 48%;
-  background-color: $light;
 }
 
 .section_header {
@@ -143,7 +173,7 @@ a {
 .servings {
   margin: 0 auto;
   margin-top: 1vh;
-  margin-bottom: 1vh;
+  margin-bottom: 3vh;
   font-size: 3vh;
   text-align: center;
 }
@@ -167,6 +197,7 @@ input[type=text],
   };
   @include border-radius(2vh);
   font-family: $normal;
+  box-shadow: 0 .5vh 1vh $darkest_shadow;
 }
 
 input[type=button] {
@@ -177,8 +208,15 @@ input[type=button] {
   width: 4vh;
   height: 4vh;
   font-size: 2vh;
-  @include border-radius(3vh);
+  @include border-radius(50%);
   text-align: center;
+  box-shadow: 0 .5vh 1vh $darkest_shadow;
+  margin-top: 0;
+}
+
+input[type=button]:hover {
+  box-shadow: none;
+  margin-top: .5vh;
 }
 
 .insert {
@@ -190,7 +228,11 @@ input[type=button] {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  min-height: 4vh;
+  min-height: 5vh;
+}
+
+#empty {
+  display: block;
 }
 
 #insert form > * {
@@ -216,8 +258,7 @@ input[type=button] {
   margin-bottom: 2vh;
   font-size: 2vh;
   text-align: center;
-  min-height: 3vh;
-  font-size: 2vh;
+  min-height: 6.5vh;
 }
 
 .single_ingredient {
@@ -234,13 +275,16 @@ input[type=button] {
   vertical-align: middle;
   line-height: 5vh;
   @include border-radius(6.5vh/2);
+  box-shadow: 0 .5vh 1vh $darkest_shadow;
+  position: relative;
 }
 
 .remove {
-  float: right;
-  line-height: normal;
-  margin-top: .5vh;
+  right: .5vw;
+  top: .75vh;
+  position: absolute;
 }
+
 .new_ingredient {
   line-height: 5vh;
 }
@@ -260,4 +304,5 @@ input[type=button] {
   background-color: $lightest;
   line-height: 5.5vh;
   @include border-radius(6.5vh/2);
+  box-shadow: 0 .5vh 1vh $darkest_shadow;
 }

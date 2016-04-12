@@ -2,13 +2,11 @@
   <head>
     <title>EasyRecipes - Right dosage in a blink</title>
     <link rel="stylesheet" type="text/css" href="easyrecipes.css">
-    <!-- <link rel="stylesheet" media="(max-width: 1150px) and (min-aspect-ratio: 1/1)" type="text/css" href="portfolio_landscape.css">
-    <link rel="stylesheet" media="(max-width: 1000px)" type="text/css" href="portfolio_mobile.css">
-    <link rel="stylesheet" media="(max-aspect-ratio: 1/1)" type="text/css" href="portfolio_portrait.css"> -->
+    <link rel="stylesheet" media="(max-width: 1150px)" type="text/css" href="easyrecipes_mobile.css">
+    <link rel="stylesheet" media="(max-aspect-ratio: 7/5)" type="text/css" href="easyrecipes_portrait.css">
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="easyrecipes.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt|Josefin+Sans' rel='stylesheet' type='text/css'>
   </head>
   <body ng-app="DosageCalc">
@@ -26,11 +24,25 @@
             .on("focus", function() {
               this.select();
             });
+          $(window)
+            .on("resize", function() {
+              if (mq.matches) {
+                $("#original")
+                  .show();
+                $("#new")
+                  .show();
+              } else {
+                $("#original")
+                  .show();
+                $("#new")
+                  .hide();
+              }
+            });
         });
     </script>
     <div id="background"></div>
     <div id="stream">
-      <div id="banner">
+      <div class="pad" id="banner">
         <div id="title">
           <h1>EasyRecipes</h1>
         </div>
@@ -38,32 +50,39 @@
           <h2>Right dosage in a blink</h2>
         </div>
       </div>
-      <div id="description">
-        <p>Take your favourite recipe. Set the number of servings in the "Original" field, and then the one you need in the "New" field.<br />
-          Then, insert all the ingredients and - voila' - you have your recipe all worked out with the right numbers.<br />
-          Enjoy!
+      <div class="pad" id="description">
+        <p>Take your favourite recipe. Set the <strong>original number of servings</strong> and the <strong>new ones</strong> that you need in the respective fields.<br />
+          <span class="mobile">Change between the original and the new by clicking on the <strong>'Choose recipe' button</strong>.<br /></span>
+          To add ingredients, press the <strong>"+" button</strong> and - voila' - your new recipe is automatically upgraded!<br />
         </p>
       </div>
       <div ng-controller="Ingredients" id="ingredients">
-        <div id="original" class="tab">
+        <div class="mobile tab pad" id="choose_recipe" ng-click="showMenu()">
+          <h3>Choose recipe</h3>
+          <div class="selector" id="original_selector" ng-click="showOriginal()">
+            <h3>Original</h3>
+          </div>
+          <div class="selector" id="new_selector" ng-click="showNew()">
+            <h3>New</h3>
+          </div>
+        </div>
+        <div id="original" class="tab pad">
           <div class="section_header">
             <h3>Original recipe</h3>
           </div>
           <div id="original_ingredients">
             <div class="servings">
               <span>Serves:</span>
-              <input ng-model="originalNumber" id="original_people" class="people" type="number" min="1" placeholder="1">
-              <span>people</span>
+              <input ng-model="originalNumber" ng-change="personOrPeople()" id="original_people" class="people" type="number" min="1" placeholder="1">
+              <span>{{ orPeople }}</span>
             </div>
             <div class="insert">
-              <!-- <form> -->
                 <div><input ng-model="quantity" id="quantity" type="number" min="0" placeholder="Quantity" my-enter="add()"></div>
                 <div><select id="units" name="units">
                   <option ng-repeat="choice in choices">{{ choice }}</option>
                 </select></div>
                 <div><input ng-model="ingredient" id="ingredient" type="text" placeholder="Ingredient" my-enter="add()"></div>
                 <div><input ng-click="add()" id="add" type="button" value="+"></div>
-              <!-- </form> -->
             </div>
           </div>
           <div id="original_ingredients_list" class="ingredients_list" ng-show="originalNumber >= 1">
@@ -75,17 +94,17 @@
           </div>
           <div class="error" ng-hide="originalNumber >= 1">Choose the number of servings to see the list of ingredients</div>
         </div>
-        <div id="new" class="tab">
+        <div id="new" class="tab pad">
           <div class="section_header">
             <h3>New recipe</h3>
           </div>
           <div id="new_ingredients">
             <div class="servings">
               <span>Serves:</span>
-              <input ng-model="newNumber" id="new_people" class="people" type="number" min="1" placeholder="1">
-              <span>people</span>
+              <input ng-model="newNumber" ng-change="personOrPeople()" id="new_people" class="people" type="number" min="1" placeholder="1">
+              <span>{{ newPeople }}</span>
             </div>
-            <div class="insert">
+            <div class="insert" id="empty">
             </div>
           </div>
           <div id="new_ingredients_list" class="ingredients_list" ng-show="newNumber >= 1 &amp;&amp; originalNumber >= 1">

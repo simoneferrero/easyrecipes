@@ -1,0 +1,114 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+input[type=number]::-ms-inner-spin-button,
+input[type=number]::-ms-outer-spin-button {
+  -ms-appearance: none;
+  margin: 0; }
+
+input[type=number]::-moz-inner-spin-button,
+input[type=number]::-moz-outer-spin-button {
+  -moz-appearance: none;
+  margin: 0; }
+
+input[type=number]::-o-inner-spin-button,
+input[type=number]::-o-outer-spin-button {
+  -o-appearance: none;
+  margin: 0; }
+
+.mobile {
+  display: block; }
+
+#stream {
+  width: 95vw;
+  margin: 0 2.5vw 0 2.5vw; }
+
+#banner {
+  margin: 2vh 0 2vh 0; }
+
+#description {
+  font-size: 3.5vh; }
+
+#ingredients {
+  display: block;
+  width: 100%; }
+
+#original {
+  margin-right: 0;
+  display: block; }
+
+#new {
+  margin-left: 0;
+  display: none; }
+
+.tab {
+  width: 100%;
+  padding-bottom: 1vh; }
+
+input[type=number],
+input[type=text],
+#units {
+  height: 6vh;
+  font-size: 2.5vh;
+  -webkit-border-radius: 3vh;
+  -moz-border-radius: 3vh;
+  -ms-border-radius: 3vh;
+  -o-border-radius: 3vh;
+  border-radius: 3vh; }
+
+input[type=button] {
+  width: 6vh;
+  height: 6vh;
+  font-size: 4vh;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%; }
+
+.people {
+  width: 10vw; }
+
+.insert {
+  min-height: 7vh; }
+
+#empty {
+  display: none; }
+
+#quantity {
+  width: 20vw; }
+
+#ingredient {
+  width: 30vw; }
+
+.ingredients_list {
+  font-size: 3vh;
+  min-height: 8vh; }
+
+.single_ingredient {
+  font-size: 3vh;
+  height: 8vh;
+  line-height: 7vh;
+  -webkit-border-radius: 4vh;
+  -moz-border-radius: 4vh;
+  -ms-border-radius: 4vh;
+  -o-border-radius: 4vh;
+  border-radius: 4vh; }
+
+.remove {
+  right: 1vw;
+  top: .5vh; }
+
+.error {
+  font-size: 2.5vh;
+  height: 8vh;
+  line-height: 8vh;
+  -webkit-border-radius: 4vh;
+  -moz-border-radius: 4vh;
+  -ms-border-radius: 4vh;
+  -o-border-radius: 4vh;
+  border-radius: 4vh; }
+
+/*# sourceMappingURL=easyrecipes_mobile.css.map */
